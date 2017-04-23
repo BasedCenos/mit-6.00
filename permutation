@@ -1,0 +1,24 @@
+function permutations(string) {
+  var strSplit = string.split('');
+  var refArray = new Array(strSplit.length).fill(false);
+  return recursive(strSplit,refArray,[],'');
+}
+
+function recursive(word,ref,arr,str){
+  if(ref.every(x => x=== true)) {
+  	if(arr.indexOf(str) === -1) arr.push(str);
+  
+  return arr;
+  }
+  
+  for(var i = 0; i < word.length;i++){
+    if (!ref[i]){
+      ref[i]= true;
+      recursive(word,ref,arr,str+word[i]);
+      ref[i] = false;
+      }
+      
+      }
+ return arr;
+   }
+  
